@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  mustache:
+    check-template-location: false
+  datasource:
+    url: jdbc:h2:mem:todoapp
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.hibernate.format_sql: true
+    defer-datasource-initialization: true
+logging:
+  level:
+    io.sherdor.todoapp: INFO
+    org.springframework.web: DEBUG
+    org.atmosphere: WARN
+  pattern:
+    console: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+vaadin:
+  allowed-packages: com.vaadin,org.vaadin,com.flowingcode,io.sherdor.todoapp
