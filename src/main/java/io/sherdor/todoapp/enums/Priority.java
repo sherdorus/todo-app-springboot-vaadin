@@ -1,6 +1,5 @@
 package io.sherdor.todoapp.enums;
 
-
 public enum Priority {
     LOW("Low"),
     MEDIUM("Medium"),
