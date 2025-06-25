@@ -1,5 +1,6 @@
 package io.sherdor.todoapp.entity;
 
+import io.sherdor.todoapp.enums.Priority;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -30,6 +31,10 @@ public class Todo {
     @Builder.Default
     @Column(nullable = false)
     private boolean completed = false;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Priority priority = Priority.MEDIUM;
 
     @Builder.Default
     @Column(name = "created_at")
