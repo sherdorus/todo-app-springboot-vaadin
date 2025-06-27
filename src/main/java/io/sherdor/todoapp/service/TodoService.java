@@ -49,4 +49,30 @@ public class TodoService {
     public void deleteTodo(Long id) {
         repository.deleteById(id);
     }
+
+    public Todo markAsCompleted(Long id) {
+        Optional<Todo> task = repository.findById(id);
+        if (task.isPresent()) {
+            var todo = task.get();
+            todo.setCompleted(true);
+            todo.setUpdatedAt(LocalDateTime.now());
+            return repository.save(todo);
+        }
+        throw new IllegalArgumentException("Task with ID " + id + " not found");
+    }
+
+    public List<Todo> searchTodos(String searchItem) {
+        if (searchItem == null || searchItem.trim().isEmpty()) {
+            return getAllTodos();
+        }
+        return repository.findByTitleOrDescriptionContainingIgnoreCase(searchItem.trim());
+    }
+
+    public List<Todo> getOverdueTodos() {
+        return repository.findByOverdueTodos(LocalDateTime.now());
+    }
+
+    public List<Todo> getTodayTodos() {
+        return repository.findTodoForDate(LocalDateTime.now());
+    }
 }

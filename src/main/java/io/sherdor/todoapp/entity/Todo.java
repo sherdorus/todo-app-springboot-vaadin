@@ -28,7 +28,6 @@ public class Todo {
     @Column(length = 1000)
     private String description;
 
-    @Builder.Default
     @Column(nullable = false)
     private boolean completed = false;
 
@@ -36,7 +35,6 @@ public class Todo {
     @Column(nullable = false)
     private Priority priority = Priority.MEDIUM;
 
-    @Builder.Default
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
