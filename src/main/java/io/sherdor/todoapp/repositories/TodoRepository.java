@@ -22,4 +22,8 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
 
     @Query("select t from Todo t where DATE(t.dueDate) = DATE(:date) and t.completed=false")
     List<Todo> findTodoForDate(@Param("date") LocalDateTime date);
+
+    long countByCompletedTrue();
+
+    long countByCompletedFalse();
 }
