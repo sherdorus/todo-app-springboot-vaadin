@@ -68,10 +68,10 @@ public class TodoService {
         repository.deleteById(id);
     }
 
-    public TodoDto markAsCompleted(Long id) {
+    public TodoDto toggleCompleted(Long id, boolean completed) {
         var todo = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Todo not found with id: " + id));
-        todo.setCompleted(true);
+        todo.setCompleted(completed);
         todo.setUpdatedAt(LocalDateTime.now());
         var savedTodo = repository.save(todo);
         return mapper.toDto(savedTodo);
