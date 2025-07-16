@@ -28,6 +28,6 @@ logging:
     org.springframework.web: DEBUG
     org.atmosphere: WARN
   pattern:
-    console: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
 vaadin:
   allowed-packages: com.vaadin,org.vaadin,com.flowingcode,io.sherdor.todoapp

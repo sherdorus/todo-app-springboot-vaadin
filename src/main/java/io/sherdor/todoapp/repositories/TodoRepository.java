@@ -13,9 +13,12 @@ import java.util.List;
 public interface TodoRepository extends JpaRepository<Todo, Long> {
     List<Todo> findByCompletedFalseOrderByPriorityDescCompletedDesc();
 
-    List<Todo> findByCompletedTrueAndOrderByUpdatedAtDesc();
+    List<Todo> findByCompletedTrueOrderByUpdatedAtDesc();
 
-    List<Todo> findByTitleOrDescriptionContainingIgnoreCase(String trim);
+    @Query("SELECT t FROM Todo t WHERE " +
+           "LOWER(t.title) LIKE LOWER(CONCAT('%', :searchTerm, '%')) OR " +
+           "LOWER(t.description) LIKE LOWER(CONCAT('%', :searchTerm, '%'))")
+    List<Todo> findByTitleOrDescriptionContainingIgnoreCase(@Param("searchTerm") String searchTerm);
 
     @Query("select t from Todo t where t.dueDate < :now and t.completed=false")
     List<Todo> findByOverdueTodos(@Param("now") LocalDateTime now);

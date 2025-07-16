@@ -78,7 +78,7 @@ public class TodoController {
         return ResponseEntity.ok().body(completed);
     }
 
-    @GetMapping
+    @GetMapping("search")
     public ResponseEntity<List<TodoDto>> searchTodo(@RequestParam String search) {
         List<TodoDto> todos = service.searchTodos(search);
         return ResponseEntity.ok().body(todos);
