@@ -35,7 +35,7 @@ public class TodoService {
     }
 
     public List<TodoDto> getCompletedTodos() {
-        return repository.findByCompletedTrueAndOrderByUpdatedAtDesc()
+        return repository.findByCompletedTrueOrderByUpdatedAtDesc()
                 .stream()
                 .map(mapper::toDto)
                 .toList();
