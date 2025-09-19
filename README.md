@@ -47,8 +47,8 @@ A modern, full-featured Todo application built with Spring Boot and Vaadin. This
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/todo-app.git
-cd todo-app
+git clone https://github.com/sherdorus/todo-console.git
+cd todo-console
 ```
 
 ### 2. Build the Application
@@ -66,6 +66,24 @@ mvn spring-boot:run
 ### 4. Access the Application
 
 Open your browser and navigate to: `http://localhost:8080`
+
+## 🐳 Docker
+
+### Run with Docker
+
+```bash
+# Build the Docker image
+docker build -t todo-app .
+
+# Run the container
+docker run -p 8080:8080 todo-app
+```
+
+## 🚀 Live Demo
+
+The application is deployed and available at: **[Live Demo on Render](https://todo-app-springboot-vaadin.onrender.com/)**
+
+> Note: The demo uses H2 in-memory database, so data will be reset on each deployment.
 
 ## 📁 Project Structure
 
@@ -193,7 +211,7 @@ mvn clean package -Pproduction
 The JAR file will be created in the `target/` directory and can be run with:
 
 ```bash
-java -jar target/todoapp-1.0.0.jar
+java -jar target/todo-app-0.0.1-SNAPSHOT.jar
 ```
 
 ## 🤝 Contributing
