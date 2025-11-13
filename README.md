@@ -7,40 +7,71 @@
 
 A modern, full-featured Todo application built with Spring Boot and Vaadin. This application provides a clean, responsive interface for managing your tasks with priority levels, due dates, and comprehensive filtering options.
 
+---
+
+## 🌍 Live Demo
+
+🚀 **Try it live:** [Todo App on Render](https://todo-app-springboot-vaadin.onrender.com)  
+*(It may take 20–30 seconds to wake up if the Render free instance is asleep.)*
+
+> The demo uses an in-memory H2 database — data resets automatically after each redeploy.
+
+---
+
+## 🧰 Deployment Details
+
+- **Platform:** Render
+- **Runtime:** Java 17
+- **Containerization:** Docker
+- **CI/CD:** GitHub Actions (auto build & deploy on push to `main`)
+- **Build Command:** `./mvnw clean package -DskipTests`
+- **Start Command:** `java -jar target/todo-app-0.0.1-SNAPSHOT.jar`
+
+---
+
 ## ✨ Features
 
-- **Task Management**: Create, edit, delete, and mark tasks as completed
-- **Priority System**: Set task priorities (Low, Medium, High, Urgent)
-- **Due Dates**: Schedule tasks with date and time
-- **Search Functionality**: Find tasks by title or description
-- **Status Filtering**: View all, active, completed, or overdue tasks
-- **Statistics Dashboard**: Real-time overview of your task statistics
-- **Dark Theme**: Modern dark UI theme powered by Vaadin Lumo
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- ✅ **Task Management** – Create, edit, delete, and mark tasks as completed
+- 🏷️ **Priority System** – Low, Medium, High, and Urgent
+- ⏰ **Due Dates** – Schedule tasks with date and time
+- 🔍 **Search & Filters** – Find tasks and view by status (active, completed, overdue)
+- 📊 **Statistics Dashboard** – Real-time overview of your progress
+- 🌙 **Dark Theme** – Modern Lumo dark UI
+- 📱 **Responsive Design** – Works on both desktop and mobile
+- 🐳 **Dockerized Deployment** – Easy to build and run anywhere
+- 🔁 **CI/CD** – Automated testing and deployment via GitHub Actions
+
+---
 
 ## 🛠️ Technology Stack
 
 - **Backend**:
   - Spring Boot 3.x
   - Spring Data JPA
-  - MapStruct for object mapping
+  - MapStruct
   - Jakarta Validation
-  - Lombok for boilerplate reduction
+  - Lombok
 
 - **Frontend**:
-  - Vaadin Flow (Java-based UI framework)
-  - Vaadin Lumo Dark Theme
+  - Vaadin Flow (Lumo Dark Theme)
 
 - **Database**:
-  - H2 Database (default, can be configured for other databases)
+  - H2 (in-memory by default)
 
-- **Build Tool**:
+- **Build & Deploy**:
   - Maven
+  - Docker
+  - GitHub Actions
+  - Render Cloud Platform
+
+---
 
 ## 📋 Prerequisites
 
 - Java 17 or higher
 - Maven 3.6 or higher
+
+---
 
 ## 🚀 Getting Started
 
@@ -72,18 +103,23 @@ Open your browser and navigate to: `http://localhost:8080`
 ### Run with Docker
 
 ```bash
-# Build the Docker image
+# Build image
 docker build -t todo-app .
 
-# Run the container
+# Run container
 docker run -p 8080:8080 todo-app
 ```
 
-## 🚀 Live Demo
+## 📦 Production Build
 
-The application is deployed and available at: **[Live Demo on Render](https://todo-app-springboot-vaadin.onrender.com/)**
-
-> Note: The demo uses H2 in-memory database, so data will be reset on each deployment.
+Create a production JAR:
+```bash
+mvn clean package -Pproduction
+```
+Run it manually:
+```bash
+java -jar target/todo-app-0.0.1-SNAPSHOT.jar
+```
 
 ## 📁 Project Structure
 
@@ -92,28 +128,16 @@ src/
 ├── main/
 │   └── java/
 │       └── io/sherdor/todoapp/
-│           ├── config/           # Configuration classes
-│           │   ├── AppShellConfig.java
-│           │   ├── DataInitializer.java
-│           │   └── TodoStats.java
-│           ├── controller/       # REST Controllers
-│           │   └── TodoController.java
-│           ├── dto/             # Data Transfer Objects
-│           │   ├── CreateTodoDto.java
-│           │   ├── TodoDto.java
-│           │   └── UpdateTodoDto.java
-│           ├── entity/          # JPA Entities
-│           │   └── Todo.java
-│           ├── enums/           # Enumerations
-│           │   └── Priority.java
-│           ├── mappers/         # MapStruct Mappers
-│           │   └── TodoMapper.java
-│           ├── repositories/    # Data Repositories
-│           │   └── TodoRepository.java
-│           ├── service/         # Business Logic
-│           │   └── TodoService.java
-│           └── view/           # Vaadin Views
-│               └── TodoMainView.java
+│           ├── config/
+│           ├── controller/
+│           ├── dto/
+│           ├── entity/
+│           ├── enums/
+│           ├── mappers/
+│           ├── repositories/
+│           ├── service/
+│           └── view/
+
 ```
 
 ## 🔌 REST API Endpoints
@@ -172,47 +196,8 @@ The H2 database console is enabled and accessible at: `http://localhost:8080/h2-
 - **Username**: `sa`
 - **Password**: `password`
 
-### Database Configuration for Other Databases
-
-To use a different database, update the `application.yml`:
-
-```yaml
-# PostgreSQL example
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/todoapp
-    driver-class-name: org.postgresql.Driver
-    username: your_username
-    password: your_password
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-```
-
-### Sample Data
-
-The application includes a `DataInitializer` that populates the database with sample todos on first startup. This can be disabled by removing or modifying the `DataInitializer` class.
-
-## 🧪 Testing
-
-Run the tests with:
-
-```bash
-mvn test
-```
-
 ## 📦 Building for Production
 
-Create a production JAR:
-
-```bash
-mvn clean package -Pproduction
-```
-
-The JAR file will be created in the `target/` directory and can be run with:
-
-```bash
-java -jar target/todo-app-0.0.1-SNAPSHOT.jar
-```
 
 ## 🤝 Contributing
 

@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -48,5 +47,4 @@ public class Todo {
     private void setUpdatedAt() {
         this.updatedAt = LocalDateTime.now();
     }
-
 }
