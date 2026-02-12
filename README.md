@@ -9,16 +9,16 @@ A modern, full-featured Todo application built with Spring Boot and Vaadin. This
 
 ---
 
-## 🌍 Live Demo
+## Live Demo
 
-🚀 **Try it live:** [Todo App on Render](https://todo-app-springboot-vaadin.onrender.com)  
+**Try it live:** [Todo App on Render](https://todo-app-springboot-vaadin.onrender.com)  
 *(It may take 20–30 seconds to wake up if the Render free instance is asleep.)*
 
 > The demo uses an in-memory H2 database — data resets automatically after each redeploy.
 
 ---
 
-## 🧰 Deployment Details
+## Deployment Details
 
 - **Platform:** Render
 - **Runtime:** Java 17
@@ -29,21 +29,21 @@ A modern, full-featured Todo application built with Spring Boot and Vaadin. This
 
 ---
 
-## ✨ Features
+## Features
 
-- ✅ **Task Management** – Create, edit, delete, and mark tasks as completed
-- 🏷️ **Priority System** – Low, Medium, High, and Urgent
-- ⏰ **Due Dates** – Schedule tasks with date and time
-- 🔍 **Search & Filters** – Find tasks and view by status (active, completed, overdue)
-- 📊 **Statistics Dashboard** – Real-time overview of your progress
-- 🌙 **Dark Theme** – Modern Lumo dark UI
-- 📱 **Responsive Design** – Works on both desktop and mobile
-- 🐳 **Dockerized Deployment** – Easy to build and run anywhere
-- 🔁 **CI/CD** – Automated testing and deployment via GitHub Actions
+- **Task Management** – Create, edit, delete, and mark tasks as completed
+- 🏷**Priority System** – Low, Medium, High, and Urgent
+- **Due Dates** – Schedule tasks with date and time
+- **Search & Filters** – Find tasks and view by status (active, completed, overdue)
+- **Statistics Dashboard** – Real-time overview of your progress
+- **Dark Theme** – Modern Lumo dark UI
+- **Responsive Design** – Works on both desktop and mobile
+- **Dockerized Deployment** – Easy to build and run anywhere
+- **CI/CD** – Automated testing and deployment via GitHub Actions
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Backend**:
   - Spring Boot 3.x
@@ -66,14 +66,14 @@ A modern, full-featured Todo application built with Spring Boot and Vaadin. This
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Java 17 or higher
 - Maven 3.6 or higher
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 
@@ -98,7 +98,7 @@ mvn spring-boot:run
 
 Open your browser and navigate to: `http://localhost:8080`
 
-## 🐳 Docker
+## Docker
 
 ### Run with Docker
 
@@ -110,7 +110,7 @@ docker build -t todo-app .
 docker run -p 8080:8080 todo-app
 ```
 
-## 📦 Production Build
+## Production Build
 
 Create a production JAR:
 ```bash
@@ -121,7 +121,7 @@ Run it manually:
 java -jar target/todo-app-0.0.1-SNAPSHOT.jar
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -140,7 +140,7 @@ src/
 
 ```
 
-## 🔌 REST API Endpoints
+## REST API Endpoints
 
 The application exposes a REST API for programmatic access:
 
@@ -160,7 +160,7 @@ The application exposes a REST API for programmatic access:
 | `GET` | `/api/todos/search?search={term}` | Search todos |
 | `GET` | `/api/todos/stats` | Get statistics |
 
-## 📊 Features Overview
+## Features Overview
 
 ### Task Creation
 - **Title**: Required field (max 255 characters)
@@ -185,7 +185,7 @@ The application exposes a REST API for programmatic access:
 - **Active**: Currently pending tasks
 - **Overdue**: Tasks past their due date
 
-## ⚙️ Configuration
+## ⚙Configuration
 
 ### H2 Database Console
 
@@ -196,10 +196,10 @@ The H2 database console is enabled and accessible at: `http://localhost:8080/h2-
 - **Username**: `sa`
 - **Password**: `password`
 
-## 📦 Building for Production
+## Building for Production
 
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
@@ -207,11 +207,11 @@ The H2 database console is enabled and accessible at: `http://localhost:8080/h2-
 4. Push to the branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Spring Boot](https://spring.io/projects/spring-boot) for the robust backend framework
 - [Vaadin](https://vaadin.com/) for the powerful Java UI framework
